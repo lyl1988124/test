@@ -13,6 +13,7 @@ import java.util.Map;
  * Date 2018/12/19 21:30
  */
 public class GsonDate {
+    //https://blog.csdn.net/lance_wyvern/article/details/50433549
 
     private String name;
 
