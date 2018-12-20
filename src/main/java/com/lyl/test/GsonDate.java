@@ -13,8 +13,6 @@ import java.util.Map;
  * Date 2018/12/19 21:30
  */
 public class GsonDate {
-    //https://blog.csdn.net/lance_wyvern/article/details/50433549
-
     private String name;
 
     private Date birthday;
@@ -31,8 +29,8 @@ public class GsonDate {
         dgt2.setBirthday(new Date(573235200000l));
 
         Map<String, Object> dgtMap = new Hashtable<String, Object>();
-        dgtMap.put(dgt1.getName(), dgt1);
-        dgtMap.put(dgt2.getName(), dgt2);
+        dgtMap.put(dgt1.getName(), gson.toJson(dgt1));
+        dgtMap.put(dgt2.getName(), gson.toJson(dgt2));
         dgtMap.put("Description", "This is a DateGsonTest map.");
 
         String dgtMapStr = gson.toJson(dgtMap);
@@ -63,4 +61,5 @@ public class GsonDate {
     public void setBirthday(Date birthday) {
         this.birthday = birthday;
     }
+
 }
