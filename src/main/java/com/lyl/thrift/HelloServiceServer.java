@@ -4,6 +4,7 @@ import org.apache.thrift.TProcessor;
 import org.apache.thrift.protocol.TBinaryProtocol;
 import org.apache.thrift.server.TServer;
 import org.apache.thrift.server.TSimpleServer;
+import org.apache.thrift.server.TThreadPoolServer;
 import org.apache.thrift.transport.TServerSocket;
 import org.apache.thrift.transport.TServerTransport;
 import org.apache.thrift.transport.TTransportException;
@@ -18,14 +19,16 @@ public class HelloServiceServer {
         // 简单的单线程服务模型
         TServerTransport serverTransport = null;
         try {
-            serverTransport = new TServerSocket(9898);
+            serverTransport = new TServerSocket(9898,10000);
         } catch (TTransportException e) {
             e.printStackTrace();
         }
-        TServer.Args tArgs = new TServer.Args(serverTransport);
+        //TServer.Args tArgs = new TServer.Args(serverTransport);
+        TThreadPoolServer.Args tArgs = new TThreadPoolServer.Args(serverTransport);
         tArgs.processor(tprocessor);
         tArgs.protocolFactory(new TBinaryProtocol.Factory());
-        TServer server = new TSimpleServer(tArgs);
+        //TServer server = new TSimpleServer(tArgs);
+        TServer server = new TThreadPoolServer(tArgs);
         server.serve();
     }
 }

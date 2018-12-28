@@ -9,6 +9,6 @@ public class HelloServiceImpl implements HelloService.Iface{
     @Override
     public String helloString(MyParam para) throws TException {
         String result = para.getPara();
-        return result;
+        return "HelloServiceImpl:"+result;
     }
 }
