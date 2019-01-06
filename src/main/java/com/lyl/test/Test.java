@@ -4,6 +4,8 @@ import com.sun.org.apache.bcel.internal.generic.NEW;
 import org.python.google.common.primitives.Ints;
 import scala.Int;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -42,7 +44,7 @@ public class Test {
     }
 
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws ParseException {
 //        Process p = new Process();
 //        Car car = new Car();
 //        car.setColor("red");
@@ -57,6 +59,9 @@ public class Test {
 //        System.out.println(list.indexOf(1));
 
         twoSum(new int[]{1,2,7,11,15},9);
+
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        sdf.parse("1544004682000L");
 
     }
 
