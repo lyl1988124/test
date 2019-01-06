@@ -1,6 +1,5 @@
 # Java class files
 *.class
-
 # Generated files
 bin/
 gen/
@@ -25,6 +24,7 @@ build/
 *.iws
 *.xml
 .idea/
+**/.idea/
 **/.idea/
 **/.DS_Store
 .project
