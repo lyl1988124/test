@@ -25,7 +25,6 @@ build/
 *.xml
 .idea/
 **/.idea/
-**/.idea/
 **/.DS_Store
 .project
 .settings/
