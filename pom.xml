@@ -92,11 +92,11 @@
 
 
     <!-- https://mvnrepository.com/artifact/org.apache.flink/flink-examples-streaming -->
-    <dependency>
-      <groupId>org.apache.flink</groupId>
-      <artifactId>flink-examples-streaming_2.11</artifactId>
-      <version>${flink.version}</version>
-    </dependency>
+    <!--<dependency>-->
+      <!--<groupId>org.apache.flink</groupId>-->
+      <!--<artifactId>flink-examples-streaming_2.11</artifactId>-->
+      <!--<version>${flink.version}</version>-->
+    <!--</dependency>-->
 
     <dependency>
       <groupId>org.apache.flink</groupId>
