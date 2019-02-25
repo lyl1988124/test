@@ -19,44 +19,44 @@ import org.apache.flink.types.Row;
  */
 public class FlinkTablePrograms {
     public static void main(String[] args) throws Exception {
-        // for batch programs use ExecutionEnvironment instead of StreamExecutionEnvironment
-        StreamExecutionEnvironment env = StreamExecutionEnvironment.getExecutionEnvironment();
-
-        // create a TableEnvironment
-        StreamTableEnvironment tableEnv = TableEnvironment.getTableEnvironment(env);
-
-        DataStream<Tuple2<String, Integer>> dataStream = env
-                .socketTextStream("localhost", 9999)
-                .map(new Splitter())
-                .keyBy(0)
-                .timeWindow(Time.seconds(5))
-                .sum(1);
-
-        tableEnv.registerDataStream("Table1", dataStream,"f0,f1");
-
-
-        //Table result1 = tableEnv.fromDataStream(dataStream,"f0,f1");
-
-        //dataStream.print();
-
-        Table result2 = tableEnv.sqlQuery("SELECT f0,f1  " +
-                "FROM Table1");
-
-
-        // create a TableSink
-        TableSink sink = new CsvTableSink("/Users/lyl/folder/workspace/ideaspace/test/myfile", "|");
-
-        String[] fieldNames = {"a", "b"};
-        TypeInformation[] fieldTypes = {Types.STRING, Types.INT};
-        tableEnv.registerTableSink("CsvSinkTable", fieldNames, fieldTypes, sink);
-        //   Emit the result Table to the registered TableSink via the insertInto() method
-        result2.insertInto("CsvSinkTable");
-
-
-        //将查询结果转换为Stream，并打印输出
-        tableEnv.toAppendStream(result2, Row.class).print();
-
-        env.execute();
+//        // for batch programs use ExecutionEnvironment instead of StreamExecutionEnvironment
+//        StreamExecutionEnvironment env = StreamExecutionEnvironment.getExecutionEnvironment();
+//
+//        // create a TableEnvironment
+//        StreamTableEnvironment tableEnv = TableEnvironment.getTableEnvironment(env);
+//
+//        DataStream<Tuple2<String, Integer>> dataStream = env
+//                .socketTextStream("localhost", 9999)
+//                .map(new Splitter())
+//                .keyBy(0)
+//                .timeWindow(Time.seconds(5))
+//                .sum(1);
+//
+//        tableEnv.registerDataStream("Table1", dataStream,"f0,f1");
+//
+//
+//        //Table result1 = tableEnv.fromDataStream(dataStream,"f0,f1");
+//
+//        //dataStream.print();
+//
+//        Table result2 = tableEnv.sqlQuery("SELECT f0,f1  " +
+//                "FROM Table1");
+//
+//
+//        // create a TableSink
+//        TableSink sink = new CsvTableSink("/Users/lyl/folder/workspace/ideaspace/test/myfile", "|");
+//
+//        String[] fieldNames = {"a", "b"};
+//        TypeInformation[] fieldTypes = {Types.STRING, Types.INT};
+//        tableEnv.registerTableSink("CsvSinkTable", fieldNames, fieldTypes, sink);
+//        //   Emit the result Table to the registered TableSink via the insertInto() method
+//        result2.insertInto("CsvSinkTable");
+//
+//
+//        //将查询结果转换为Stream，并打印输出
+//        tableEnv.toAppendStream(result2, Row.class).print();
+//
+//        env.execute();
 
     }
 
