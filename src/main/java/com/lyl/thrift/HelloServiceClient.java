@@ -2,6 +2,7 @@ package com.lyl.thrift;
 
 import org.apache.thrift.TException;
 import org.apache.thrift.protocol.TBinaryProtocol;
+import org.apache.thrift.protocol.TCompactProtocol;
 import org.apache.thrift.protocol.TMultiplexedProtocol;
 import org.apache.thrift.protocol.TProtocol;
 import org.apache.thrift.transport.TSocket;
@@ -40,8 +41,8 @@ public class HelloServiceClient {
     public static void main(String[] args) {
         System.out.println("客户端启动....");
         TSocket transport = new TSocket("localhost",9898);
-        TBinaryProtocol protocol = new TBinaryProtocol(transport);
-        TMultiplexedProtocol mp1 = new TMultiplexedProtocol(protocol,"hlloService");
+        TCompactProtocol protocol = new TCompactProtocol(transport);
+        TMultiplexedProtocol mp1 = new TMultiplexedProtocol(protocol,"helloService");
         HelloService.Client service1 = new HelloService.Client(mp1);
 
         try {

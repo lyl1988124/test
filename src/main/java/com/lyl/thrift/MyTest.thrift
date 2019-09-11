@@ -1,4 +1,5 @@
-namespace java com.lyl.thrift
+//namespace java com.lyl.thrift
+namespace py com.lyl.thrift
 service HelloService{
     string helloString(1:MyParam para);
 }

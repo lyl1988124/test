@@ -3,6 +3,7 @@ package com.lyl.thrift;
 import org.apache.thrift.TMultiplexedProcessor;
 import org.apache.thrift.TProcessor;
 import org.apache.thrift.protocol.TBinaryProtocol;
+import org.apache.thrift.protocol.TCompactProtocol;
 import org.apache.thrift.server.TServer;
 import org.apache.thrift.server.TSimpleServer;
 import org.apache.thrift.server.TThreadPoolServer;
@@ -43,7 +44,7 @@ public class HelloServiceServer {
         //多个service start
         System.out.println("Multiple service服务端开启....");
         TMultiplexedProcessor processor = new TMultiplexedProcessor();
-        processor.registerProcessor("hlloService",new HelloService.Processor<HelloService.Iface>(new HelloServiceImpl()));
+        processor.registerProcessor("helloService",new HelloService.Processor<HelloService.Iface>(new HelloServiceImpl()));
         // 简单的单线程服务模型
         TServerTransport serverTransport = null;
         try {
@@ -57,7 +58,8 @@ public class HelloServiceServer {
         //TServer.Args tArgs = new TServer.Args(serverTransport);
         TThreadPoolServer.Args tArgs = new TThreadPoolServer.Args(serverTransport);
         tArgs.processor(processor);
-        tArgs.protocolFactory(new TBinaryProtocol.Factory());
+        System.out.println("来啦");
+        tArgs.protocolFactory(new TCompactProtocol.Factory());
         //TServer server = new TSimpleServer(tArgs);
         TServer server = new TThreadPoolServer(tArgs);
         server.serve();
