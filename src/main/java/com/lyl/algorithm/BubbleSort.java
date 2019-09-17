@@ -1,4 +1,4 @@
-package com.lyl.attempt;
+package com.lyl.algorithm;
 
 import java.util.Arrays;
 
