@@ -1,7 +1,5 @@
 package com.lyl.effectJava.createAndDestroyObject;
 
-import org.apache.flink.table.expressions.Pi;
-
 import java.util.Objects;
 
 /**
@@ -31,8 +29,9 @@ public class NyPizza extends Pizza {
             return this;
         }
     }
-    private NyPizza(Builder builder){
+
+    public NyPizza(NyPizza.Builder builder) {
         super(builder);
-        size = builder.size;
+        this.size = builder.size;
     }
 }
