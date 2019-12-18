@@ -1,4 +1,4 @@
-package com.lyl.effectJava.createAndDestroyObject;
+package com.lyl.jvm.createAndDestroyObject;
 
 import java.util.EnumSet;
 import java.util.Objects;

@@ -1,4 +1,4 @@
-package com.lyl.effectJava.createAndDestroyObject;
+package com.lyl.jvm.createAndDestroyObject;
 
 import org.springframework.cglib.proxy.Enhancer;
 import org.springframework.cglib.proxy.MethodInterceptor;
