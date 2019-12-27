@@ -1,6 +1,8 @@
 package com.lyl.test;
 
+import com.google.common.collect.Maps;
 import com.sun.org.apache.bcel.internal.generic.NEW;
+import org.apache.commons.collections.MapUtils;
 import org.python.google.common.primitives.Ints;
 import scala.Int;
 
@@ -9,6 +11,7 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Map;
 
 /**
  * Created by lyl on 2017/7/10.
@@ -61,8 +64,35 @@ public class Test {
         twoSum(new int[]{1,2,7,11,15},9);
 
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-        sdf.parse("1544004682000L");
+       // sdf.parse("1544004682000L");
 
+        int a=1;
+        int b=2;
+        int c=3;
+
+        if(a!=a()||b!=b()&&c==c()){
+            System.out.println("GG");
+        }
+
+        Map<String, Long> map = null;
+        if (MapUtils.isNotEmpty(map)) {
+            System.out.println("aa");
+        }
+    }
+
+    private static  int a(){
+        System.out.println("走a");
+        return 1;
+    }
+
+    private static int b(){
+        System.out.println("走b");
+        return 2;
+    }
+
+    private static int c(){
+        System.out.println("走c");
+        return 3;
     }
 
     public static int[] twoSum(int[] nums, int target) {

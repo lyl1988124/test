@@ -4,6 +4,7 @@ package com.lyl.jvm.createAndDestroyObject;
  * Created by lyl
  * Date 2019/12/18 21:47
  * -verbose: -Xms20M -Xms20M -Xmn10M -XX:+PrintGCDetails -XX:SurvivorRatio=8
+ * idea+jdk1.8默认使用的是Parallel Scavenge回收器，而书上使用的是Serial/Serial Old，所以要想达到和书上一样的结果，要添加条件：-XX:+UseSerialGC
  */
 public class Allocation {
     private static final int  _1MB = 1024 * 1024;
