@@ -123,11 +123,7 @@
     </dependency>
 
     <!-- https://mvnrepository.com/artifact/org.apache.flink/flink-streaming-scala -->
-    <dependency>
-      <groupId>org.apache.flink</groupId>
-      <artifactId>flink-streaming-scala_2.12</artifactId>
-      <version>${flink.version}</version>
-    </dependency>
+
 
 
     <!--spring start-->
@@ -167,13 +163,6 @@
       <version>27.1-jre</version>
     </dependency>
 
-    <dependency>
-      <groupId>com.junziqian.api</groupId>
-      <artifactId>junziqian-api-sdk</artifactId>
-      <version>2.0.0</version>
-      <scope>system</scope>
-      <systemPath>${project.basedir}/libs/junziqian-api-sdk-2.0.0.jar</systemPath>
-    </dependency>
 
     <dependency>
       <groupId>org.ebaoquan.rop</groupId>
@@ -183,13 +172,6 @@
       <systemPath>${project.basedir}/libs/rop-client-3.0.0-20180505.082514-8.jar</systemPath>
     </dependency>
 
-    <dependency>
-      <groupId>org.ebaoquan.rop</groupId>
-      <artifactId>rop-common</artifactId>
-      <version>3.0.0</version>
-      <scope>system</scope>
-      <systemPath>${project.basedir}/libs/rop-common-3.0.0-20180505.082507-8.jar</systemPath>
-    </dependency>
 
   </dependencies>
 
@@ -269,12 +251,6 @@
           <pluginArtifact>io.grpc:protoc-gen-grpc-java:1.18.0:exe:${os.detected.classifier}</pluginArtifact>
         </configuration>
         <executions>
-          <execution>
-            <goals>
-              <goal>compile</goal>
-              <goal>compile-custom</goal>
-            </goals>
-          </execution>
         </executions>
       </plugin>
       <!--grpc end-->
@@ -284,12 +260,7 @@
         <artifactId>scala-maven-plugin</artifactId>
         <version>3.4.6</version>
         <executions>
-          <execution>
-            <goals>
-              <goal>compile</goal>
-              <goal>testCompile</goal>
-            </goals>
-          </execution>
+
         </executions>
       </plugin>
 
