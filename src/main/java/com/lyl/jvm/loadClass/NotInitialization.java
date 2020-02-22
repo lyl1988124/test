@@ -1,6 +1,5 @@
 package com.lyl.jvm.loadClass;
 
-import com.sun.tools.internal.jxc.ap.Const;
 
 /**
  * Created by lyl
