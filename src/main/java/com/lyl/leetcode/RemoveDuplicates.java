@@ -1,4 +1,4 @@
-package com.lyl.letcode;
+package com.lyl.leetcode;
 
 import java.util.Arrays;
 
