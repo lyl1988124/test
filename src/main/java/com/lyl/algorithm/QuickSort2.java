@@ -52,6 +52,7 @@ public class QuickSort2 {
     
     public static void main(String[] args) {
         int [] unsortArray = new int[] {6,5,3,1,8,7,2,4};
+        String[] aa = {"aa","bb"};
         QuickSort2Method(unsortArray);
         for(int item : unsortArray){
             System.out.print(item+" ");
