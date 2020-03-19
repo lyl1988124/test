@@ -12,6 +12,7 @@ public class QuickSort2 {
             return array;
         }
         
+       
         //最左侧元素作为分个数
         int pivot = array[l];
         int left = l+1;
