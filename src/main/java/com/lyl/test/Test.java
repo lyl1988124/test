@@ -1,23 +1,27 @@
 package com.lyl.test;
 
-import com.google.common.collect.Maps;
-import com.sun.org.apache.bcel.internal.generic.NEW;
 import org.apache.commons.collections.MapUtils;
-import org.python.google.common.primitives.Ints;
-import scala.Int;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
+import java.util.Optional;
 
 /**
  * Created by lyl on 2017/7/10.
  */
 public class Test {
     static  class Car{
+
+        public Car(String color) {
+            this.color = color;
+        }
+
+        public Car() {
+        }
+
         String color;
 
         public String getColor() {
@@ -78,6 +82,12 @@ public class Test {
         if (MapUtils.isNotEmpty(map)) {
             System.out.println("aa");
         }
+        System.out.println(Optional.ofNullable(new Car("白色")).map(t -> t.getColor()).orElse("没有啊"));
+
+        // 测试断言 需要配置 VM options: -ea
+        boolean isSafe = false;
+        assert isSafe : "Not safe at all";
+        System.out.println("断言通过!");
     }
 
     private static  int a(){
