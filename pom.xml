@@ -242,7 +242,7 @@
           </descriptorRefs>
           <archive>
             <manifest>
-              <mainClass>com.lyl.flink.SocketWindowWordCount</mainClass>
+              <mainClass>com.lyl.serve.flink.SocketWindowWordCount</mainClass>
             </manifest>
           </archive>
         </configuration>
