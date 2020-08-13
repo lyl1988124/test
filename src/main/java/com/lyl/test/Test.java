@@ -1,13 +1,16 @@
 package com.lyl.test;
 
+import javafx.util.Pair;
 import org.apache.commons.collections.MapUtils;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
-import java.util.Optional;
+import java.time.Instant;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+import java.util.*;
+import java.util.stream.Collectors;
 
 /**
  * Created by lyl on 2017/7/10.
@@ -85,9 +88,44 @@ public class Test {
         System.out.println(Optional.ofNullable(new Car("白色")).map(t -> t.getColor()).orElse("没有啊"));
 
         // 测试断言 需要配置 VM options: -ea
-        boolean isSafe = false;
+        boolean isSafe = true;
         assert isSafe : "Not safe at all";
         System.out.println("断言通过!");
+
+        System.out.println(LocalDate.now().lengthOfYear());
+        List<Pair<String, Double>> pairArrayList = new ArrayList<>(3);
+        pairArrayList.add(new Pair<>("version", 6.19));
+        pairArrayList.add(new Pair<>("version", 10.24));
+        pairArrayList.add(new Pair<>("version", 13.14));
+        Map<String, Double> map22 = pairArrayList.stream().collect(
+// 生成的 map 集合中只有一个键值对：{version=13.14}
+                Collectors.toMap(Pair::getKey, Pair::getValue, (v1, v2) -> v2));
+        System.out.println(map22);
+
+
+        List<String> list = new ArrayList<>(2);
+        list.add("guan");
+        list.add("bao");
+        String[] array = list.toArray(new String[0]);
+        System.out.println(Arrays.asList(array));
+
+        System.out.println(Instant.now());
+        System.out.println(LocalDateTime.now());
+        System.out.println(new Date());
+        DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
+        LocalDateTime localDateTime = LocalDateTime.now();
+        System.out.println(localDateTime.format(dtf));
+
+        SeasonEnum aa = SeasonEnum.SUMMER;
+        switch(""){
+            case "SPRING":
+                break;
+            case "SUMMER":
+                System.out.println("SUMMER");
+            default:
+                System.out.println("没有的");
+        }
+
     }
 
     private static  int a(){
