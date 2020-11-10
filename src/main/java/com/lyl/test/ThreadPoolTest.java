@@ -1,8 +1,12 @@
 package com.lyl.test;
 
+import com.google.common.util.concurrent.ThreadFactoryBuilder;
+import com.lyl.util.SetThreadName;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.ArrayBlockingQueue;
+import java.util.concurrent.ExecutorService;
 import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicInteger;
@@ -16,13 +20,14 @@ import java.util.concurrent.atomic.AtomicInteger;
  */
 public class ThreadPoolTest {
 
-    ThreadPoolExecutor threadPoolExecutor =
+    ExecutorService threadPoolExecutor =
         new ThreadPoolExecutor(
             2,
             2,
             1,
             TimeUnit.SECONDS,
-            new ArrayBlockingQueue<Runnable>(1));
+            new ArrayBlockingQueue<>(1)
+        ,new ThreadFactoryBuilder().setNameFormat("thread-pool-%s").build());
 
     boolean isFinal = false;
 
@@ -46,23 +51,29 @@ public class ThreadPoolTest {
 
     private void method2(AtomicInteger cnt) {
         while (!isFinal) {
-            System.out.println("method2 not final cnt=" + cnt);
-            try {
-                Thread.sleep(1000);
-            } catch (InterruptedException e) {
+            try (SetThreadName threadName = new SetThreadName("method2")) {
+                System.out.println(threadName.threadName);
+                System.out.println("method2 not final cnt=" + cnt);
+                try {
+                    Thread.sleep(1000);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+                if (cnt.get() <= 0) {
+                    System.out.println(aa.get(100));
+                    break;
+                }
+                cnt.getAndDecrement();
+
+            } catch (Exception e) {
                 e.printStackTrace();
             }
-            if (cnt.get() <= 0) {
-                System.out.println(aa.get(100));
-                break;
-            }
-            cnt.getAndDecrement();
         }
     }
 
     private void start(AtomicInteger param) {
-        threadPoolExecutor.submit(()->method1(param));
-        threadPoolExecutor.submit(()->method2(param));
+        threadPoolExecutor.submit(() -> method1(param));
+        threadPoolExecutor.submit(() -> method2(param));
 
         threadPoolExecutor.shutdown();
     }
@@ -70,5 +81,6 @@ public class ThreadPoolTest {
     public static void main(String[] args) {
         ThreadPoolTest threadPoolTest = new ThreadPoolTest();
         threadPoolTest.start(new AtomicInteger(3));
+
     }
 }
