@@ -1,4 +1,4 @@
-package com.lyl.python;
+package com.lyl.technology.python;
 
 import org.python.util.PythonInterpreter;
 
