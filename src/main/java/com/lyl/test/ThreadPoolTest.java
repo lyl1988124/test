@@ -52,7 +52,7 @@ public class ThreadPoolTest {
     private void method2(AtomicInteger cnt) {
         while (!isFinal) {
             try (SetThreadName threadName = new SetThreadName("method2")) {
-                System.out.println(threadName.threadName);
+                System.out.println(threadName);
                 System.out.println("method2 not final cnt=" + cnt);
                 try {
                     Thread.sleep(1000);
@@ -60,7 +60,7 @@ public class ThreadPoolTest {
                     e.printStackTrace();
                 }
                 if (cnt.get() <= 0) {
-                    System.out.println(aa.get(100));
+                    System.out.println("break!");
                     break;
                 }
                 cnt.getAndDecrement();
@@ -80,7 +80,8 @@ public class ThreadPoolTest {
 
     public static void main(String[] args) {
         ThreadPoolTest threadPoolTest = new ThreadPoolTest();
-        threadPoolTest.start(new AtomicInteger(3));
+        threadPoolTest.start(new AtomicInteger(100));
+
 
     }
 }
