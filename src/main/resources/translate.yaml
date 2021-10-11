@@ -1,0 +1,7 @@
+train_params:
+  - type: int
+    data: 1
+  - type: select
+    data:
+      name: hehe
+      value: bb

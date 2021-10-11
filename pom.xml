@@ -220,6 +220,14 @@
             <artifactId>snakeyaml</artifactId>
             <version>1.29</version>
         </dependency>
+
+        <!-- https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-core -->
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-core</artifactId>
+            <version>2.13.0</version>
+        </dependency>
+
     </dependencies>
 
     <build>
@@ -262,6 +270,7 @@
             <!--</executions>-->
             <!--</plugin>-->
             <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-assembly-plugin</artifactId>
                 <version>3.3.0</version>
                 <configuration>
