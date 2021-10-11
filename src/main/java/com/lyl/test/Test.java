@@ -1,15 +1,17 @@
 package com.lyl.test;
 
-import javafx.util.Pair;
-import org.apache.commons.collections.MapUtils;
 
+import java.lang.annotation.ElementType;
+import java.lang.annotation.Retention;
+import java.lang.annotation.RetentionPolicy;
+import java.lang.annotation.Target;
+import java.lang.reflect.AnnotatedType;
+import java.lang.reflect.Field;
+import java.lang.reflect.Type;
 import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.time.Instant;
-import java.time.LocalDate;
-import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
+
 import java.util.*;
+import java.util.concurrent.atomic.DoubleAdder;
 import java.util.stream.Collectors;
 
 /**
@@ -53,79 +55,22 @@ public class Test {
         }
     }
 
-
-    public static void main(String[] args) throws ParseException {
-//        Process p = new Process();
-//        Car car = new Car();
-//        car.setColor("red");
-//        System.out.println(car);
-//        p.function2(car);
-//        System.out.println(car);
+    private int number;
 
 
-//        int[] a = new int[]{1,3,4};
-//        List<Integer> list = Ints.asList(a);
-//        System.out.println(list.get(0));
-//        System.out.println(list.indexOf(1));
+    public static void main(String[] args) throws ParseException, NoSuchFieldException {
+        DoubleAdder da =  new DoubleAdder();
+        da.add(1);
+        System.out.println(da);
+        System.out.println(da);
 
-        twoSum(new int[]{1,2,7,11,15},9);
-
-        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-       // sdf.parse("1544004682000L");
-
-        int a=1;
-        int b=2;
-        int c=3;
-
-        if(a!=a()||b!=b()&&c==c()){
-            System.out.println("GG");
-        }
-
-        Map<String, Long> map = null;
-        if (MapUtils.isNotEmpty(map)) {
-            System.out.println("aa");
-        }
-        System.out.println(Optional.ofNullable(new Car("白色")).map(t -> t.getColor()).orElse("没有啊"));
-
-        // 测试断言 需要配置 VM options: -ea
-        boolean isSafe = true;
-        assert isSafe : "Not safe at all";
-        System.out.println("断言通过!");
-
-        System.out.println(LocalDate.now().lengthOfYear());
-        List<Pair<String, Double>> pairArrayList = new ArrayList<>(3);
-        pairArrayList.add(new Pair<>("version", 6.19));
-        pairArrayList.add(new Pair<>("version", 10.24));
-        pairArrayList.add(new Pair<>("version", 13.14));
-        Map<String, Double> map22 = pairArrayList.stream().collect(
-// 生成的 map 集合中只有一个键值对：{version=13.14}
-                Collectors.toMap(Pair::getKey, Pair::getValue, (v1, v2) -> v2));
-        System.out.println(map22);
+    }
+    private int @SpecialNumber[] number2;
 
 
-        List<String> list = new ArrayList<>(2);
-        list.add("guan");
-        list.add("bao");
-        String[] array = list.toArray(new String[0]);
-        System.out.println(Arrays.asList(array));
-
-        System.out.println(Instant.now());
-        System.out.println(LocalDateTime.now());
-        System.out.println(new Date());
-        DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
-        LocalDateTime localDateTime = LocalDateTime.now();
-        System.out.println(localDateTime.format(dtf));
-
-        SeasonEnum aa = SeasonEnum.SUMMER;
-        switch(""){
-            case "SPRING":
-                break;
-            case "SUMMER":
-                System.out.println("SUMMER");
-            default:
-                System.out.println("没有的");
-        }
-
+    @Target({ ElementType.TYPE_USE })
+    @Retention(RetentionPolicy.RUNTIME)
+    private @interface SpecialNumber {
     }
 
     private static  int a(){
