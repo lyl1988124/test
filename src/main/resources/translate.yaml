@@ -1,7 +1,33 @@
-train_params:
-  - type: int
-    data: 1
-  - type: select
-    data:
-      name: hehe
-      value: bb
+alg_ext:
+  # -
+  # 算子类型，seg\diff\detect\common中的一种
+  # e.g.: “type”: “seg”;
+  # 算子名称
+  # 定义：
+  # (1) model_type完成具体算法的生命周期钩子的路由。
+  # (2) Model_type 是算子名称，比如deeplab, yolo, dlinknet_before等。
+  # e.g.: “model_type”: “deeplab”;
+  # 算法的版本采用v{n}的方式表示，v是固定字符串，n是算法的版本
+  # e.g.: “version”: “v3”
+  # domseg/algorithm/seg/xxx(算法名称)/conf/算法名称+_ext.yaml
+  # e.g.: “path”: “domseg/algorithm/seg/torch_seg/deeplab_v3_ext.yaml.”
+  # 算子状态，online或者offline.如果是offline，则不能用于模型训练和迁移训练
+  # “status”: “online”
+  -
+    type: seg
+    model_type: deeplabv3
+    version: v1
+    path: domseg/algorithm/detect/torch_yolo/deeplabv3_v1_ext.yaml
+    status: online
+  -
+    type: detect
+    model_type: yolov5
+    version: v1
+    path: domseg/algorithm/detect/torch_yolo/yolov5_v1_ext.yaml
+    status: online
+  -
+    type: diff
+    model_type: DLinkNet101Before
+    version: v1
+    path: domseg/algorithm/diff/torch_diff/DLinkNet101Before_v1_ext.yaml
+    status: online
