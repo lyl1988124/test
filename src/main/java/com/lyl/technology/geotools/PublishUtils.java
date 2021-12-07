@@ -2,7 +2,9 @@ package com.lyl.technology.geotools;
 
 import it.geosolutions.geoserver.rest.GeoServerRESTPublisher;
 import it.geosolutions.geoserver.rest.GeoServerRESTReader;
+import org.geotools.referencing.crs.DefaultGeographicCRS;
 import org.opengis.referencing.FactoryException;
+import org.opengis.referencing.crs.CoordinateReferenceSystem;
 
 import java.io.File;
 import java.util.List;
@@ -22,6 +24,9 @@ public class PublishUtils {
         String RESTURL = "http://localhost:8082/geoserver";
         String RESTUSER = "admin";
         String RESTPW = "geoserver";
+
+        //默认坐标 EPSG:4326
+        CoordinateReferenceSystem crs = DefaultGeographicCRS.WGS84;
 
 //        CoordinateReferenceSystem referenceSystem = CRS.decode("GCS_WGS_1984");
 //

@@ -17,7 +17,7 @@ import java.util.stream.Collectors;
 /**
  * Created by lyl on 2017/7/10.
  */
-public class Test {
+public class TestDoubleAdder {
     static  class Car{
 
         public Car(String color) {

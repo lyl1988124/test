@@ -8,7 +8,7 @@ import java.security.NoSuchAlgorithmException;
 /**
  * Created by lyl on 2017/7/13.
  */
-public class Test2 {
+public class TestMD5 {
 
     public static void main(String[] args) throws NoSuchAlgorithmException {
         String s ="100019536699";
