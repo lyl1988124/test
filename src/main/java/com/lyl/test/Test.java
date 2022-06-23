@@ -1,5 +1,7 @@
 package com.lyl.test;
 
+import java.math.BigDecimal;
+
 /**
  * <p> Licence     : (C) Copyright 2019-2021, ZettaCloud Xi'an
  * <p> Description :
@@ -10,7 +12,7 @@ package com.lyl.test;
 public class Test {
 
     public static void main(String[] args) {
-        double a= 8D/20D;
-        System.out.println(a);
+        System.out.println(new BigDecimal(8.8));
+        System.out.println(new BigDecimal(88.8));
     }
 }
