@@ -1,7 +1,7 @@
 package com.lyl.work.desensitized;
 
 
-import com.zettacloud.idps.common.lang.JsonUtils;
+import com.alibaba.fastjson.JSON;
 import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -50,11 +50,12 @@ public class DesensitizedUtils {
                 String value = doconverentForObject(val, annotation.type().name());
                 declaredFields[j].set(object, value);
             }
-            return JsonUtils.objectToJson(object);
+            // return JsonUtils.objectToJson(object);
+            return JSON.toJSONString(object);
         } catch (Exception e) {
             e.printStackTrace();
             logger.error("日志脱敏处理失败，回滚，详细信息:[{}]", new Object[]{e});
-            return JsonUtils.objectToJson(object);
+            return JSON.toJSONString(object);
         }
     }
 
