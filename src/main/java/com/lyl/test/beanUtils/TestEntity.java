@@ -1,7 +1,7 @@
 package com.lyl.test.beanUtils;
 
 /**
- * <p> Licence     : (C) Copyright 2019-2020, ZettaCloud Xi'an
+
  * <p> Description : CopyTest1.java
  *
  * @author : liuyuanlong

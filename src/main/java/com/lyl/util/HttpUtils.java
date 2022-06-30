@@ -16,7 +16,7 @@ import java.util.Base64;
 import java.util.TimeZone;
 
 /**
- * <p> Licence     : (C) Copyright 2019-2021, ZettaCloud Xi'an
+
  * <p> Description :
  *
  * @author : liuyuanlong

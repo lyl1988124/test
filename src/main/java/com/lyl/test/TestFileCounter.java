@@ -11,7 +11,7 @@ import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
 
 /**
- * <p> Licence     : (C) Copyright 2019-2021, ZettaCloud Xi'an
+
  * <p> Description :
  *
  * @author : liuyuanlong

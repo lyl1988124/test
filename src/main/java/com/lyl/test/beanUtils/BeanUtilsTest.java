@@ -3,7 +3,7 @@ package com.lyl.test.beanUtils;
 import org.springframework.beans.BeanUtils;
 
 /**
- * <p> Licence     : (C) Copyright 2019-2020, ZettaCloud Xi'an
+
  * <p> Description : beanUtilsTest.java
  *
  * @author : liuyuanlong

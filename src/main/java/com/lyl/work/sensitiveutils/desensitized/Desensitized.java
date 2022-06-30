@@ -1,9 +1,9 @@
-package com.lyl.work.desensitized;
+package com.lyl.work.sensitiveutils.desensitized;
 
 import java.lang.annotation.*;
 
 /**
- * <p> Licence     : (C) Copyright 2019-2022, RSSZ Xi'an
+ 
  * <p> Description : Desensitized
  *
  * @author : liuyuanlong

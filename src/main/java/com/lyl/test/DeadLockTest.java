@@ -1,7 +1,7 @@
 package com.lyl.test;
 
 /**
- * <p> Licence     : (C) Copyright 2019-2022, RSSZ Xi'an
+ 
  * <p> Description : DeadLockTest
  *
  * @author : liuyuanlong

@@ -1,11 +1,11 @@
-package com.lyl.work.sensitiveInfo;
+package com.lyl.work.sensitiveutils.sensitiveInfo;
 
 import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
 /**
- * <p> Licence     : (C) Copyright 2019-2022, RSSZ Xi'an
+ 
  * <p> Description : JavaBeanA
  *
  * @author : liuyuanlong

@@ -6,7 +6,7 @@ import java.time.Instant;
 import static java.lang.Thread.sleep;
 
 /**
- * <p> Licence     : (C) Copyright 2019-2020, ZettaCloud Xi'an
+
  * <p> Description : TesyTemp.java
  *
  * @author : liuyuanlong

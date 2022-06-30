@@ -5,7 +5,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 
 /**
- * <p> Licence     : (C) Copyright 2019-2020, ZettaCloud Xi'an
+
  * <p> Description : FileApp.java
  *
  * @author : liuyuanlong

@@ -3,7 +3,7 @@ package com.lyl.test;
 import org.apache.commons.lang3.RandomUtils;
 
 /**
- * <p> Licence     : (C) Copyright 2019-2020, ZettaCloud Xi'an
+
  * <p> Description : TestWhile.java
  *
  * @author : liuyuanlong

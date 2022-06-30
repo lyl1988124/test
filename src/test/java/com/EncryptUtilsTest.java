@@ -1,9 +1,9 @@
 package com;
 
-import com.lyl.work.desensitized.DesensitizedUtils;
+import com.lyl.work.sensitiveutils.desensitized.DesensitizedUtils;
 
 /**
- * <p> Licence     : (C) Copyright 2019-2022, RSSZ Xi'an
+ 
  * <p> Description : TestEncryptUtils
  *
  * @author : liuyuanlong

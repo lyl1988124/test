@@ -8,7 +8,7 @@ import java.io.IOException;
 import java.util.concurrent.ThreadPoolExecutor;
 
 /**
- * <p> Licence     : (C) Copyright 2019-2020, ZettaCloud Xi'an
+
  * <p> Description : AppCtl.java
  *
  * @author : liuyuanlong

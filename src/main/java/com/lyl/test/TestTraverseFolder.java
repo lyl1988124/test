@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * <p> Licence     : (C) Copyright 2019-2021, ZettaCloud Xi'an
+
  * <p> Description : 遍历文件夹
  *
  * @author : liuyuanlong

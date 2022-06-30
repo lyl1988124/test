@@ -1,4 +1,4 @@
-package com.lyl.work.desensitized;
+package com.lyl.work.sensitiveutils.desensitized;
 
 
 import com.alibaba.fastjson.JSON;
@@ -9,7 +9,7 @@ import org.slf4j.LoggerFactory;
 import java.lang.reflect.Field;
 
 /**
- * <p> Licence     : (C) Copyright 2019-2022, RSSZ Xi'an
+ 
  * <p> Description : DesensitizedUtils
  *
  * @author : liuyuanlong

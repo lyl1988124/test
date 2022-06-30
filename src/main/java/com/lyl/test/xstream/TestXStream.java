@@ -4,7 +4,7 @@ import com.thoughtworks.xstream.XStream;
 import com.thoughtworks.xstream.security.AnyTypePermission;
 
 /**
- * <p> Licence     : (C) Copyright 2019-2021, ZettaCloud Xi'an
+
  * <p> Description :
  *
  * @author : liuyuanlong

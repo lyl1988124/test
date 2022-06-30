@@ -9,7 +9,7 @@ import java.util.Enumeration;
 import java.util.List;
 
 /**
- * <p> Licence     : (C) Copyright 2019-2020, ZettaCloud Xi'an
+
  * <p> Description : MacInfo.java
  *
  * @author : liuyuanlong

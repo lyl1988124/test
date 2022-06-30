@@ -1,10 +1,10 @@
-package com.lyl.work.sensitiveInfo;
+package com.lyl.work.sensitiveutils.sensitiveInfo;
 
 import java.util.Map;
 import java.util.Set;
 
 /**
- * <p> Licence     : (C) Copyright 2019-2022, RSSZ Xi'an
+ 
  * <p> Description : JavaBeanB
  *
  * @author : liuyuanlong

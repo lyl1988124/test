@@ -1,12 +1,12 @@
 package com;
 
-import com.lyl.work.desensitized.Desensitized;
-import com.lyl.work.desensitized.SensitiveTypeEnum;
+import com.lyl.work.sensitiveutils.desensitized.Desensitized;
+import com.lyl.work.sensitiveutils.desensitized.SensitiveTypeEnum;
 import org.apache.commons.lang3.builder.ToStringBuilder;
 import org.apache.commons.lang3.builder.ToStringStyle;
 
 /**
- * <p> Licence     : (C) Copyright 2019-2022, RSSZ Xi'an
+ 
  * <p> Description : TestPerson
  *
  * @author : liuyuanlong

@@ -3,7 +3,7 @@ package com.lyl.test;
 import com.lyl.C;
 
 /**
- * <p> Licence     : (C) Copyright 2019-2021, ZettaCloud Xi'an
+
  * <p> Description :
  *
  * @author : liuyuanlong

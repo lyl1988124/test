@@ -3,7 +3,7 @@ package com.lyl.test;
 import com.alibaba.fastjson.JSON;
 
 /**
- * <p> Licence     : (C) Copyright 2019-2020, ZettaCloud Xi'an
+
  * <p> Description :
  *
  * @author : liuyuanlong

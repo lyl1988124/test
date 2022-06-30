@@ -1,9 +1,12 @@
 package com.lyl.test;
 
+import javassist.ClassPool;
+
 import java.math.BigDecimal;
+import java.net.URL;
 
 /**
- * <p> Licence     : (C) Copyright 2019-2021, ZettaCloud Xi'an
+
  * <p> Description :
  *
  * @author : liuyuanlong
@@ -12,7 +15,9 @@ import java.math.BigDecimal;
 public class Test {
 
     public static void main(String[] args) {
-        System.out.println(new BigDecimal(8.8));
-        System.out.println(new BigDecimal(88.8));
+        ClassPool classPool = ClassPool.getDefault();
+        URL url =classPool.find("com.lyl.test.Test");
+
+        System.out.println(url);
     }
 }

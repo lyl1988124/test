@@ -1,15 +1,15 @@
 package com;
 
 import com.alibaba.fastjson.JSON;
-import com.lyl.work.sensitiveInfo.JavaBeanA;
-import com.lyl.work.sensitiveInfo.JavaBeanB;
-import com.lyl.work.sensitiveInfo.SensitiveInfoUtils;
+import com.lyl.work.sensitiveutils.sensitiveInfo.JavaBeanA;
+import com.lyl.work.sensitiveutils.sensitiveInfo.JavaBeanB;
+import com.lyl.work.sensitiveutils.sensitiveInfo.SensitiveInfoUtils;
 import org.junit.Test;
 
 import java.util.*;
 
 /**
- * <p> Licence     : (C) Copyright 2019-2022, RSSZ Xi'an
+ 
  * <p> Description : adsf
  *
  * @author : liuyuanlong

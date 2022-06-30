@@ -5,7 +5,7 @@ import java.io.Closeable;
 import static java.util.Objects.requireNonNull;
 
 /**
- * <p> Licence     : (C) Copyright 2019-2020, ZettaCloud Xi'an
+
  * <p> Description :
  *
  * @author : chunhui.mch
