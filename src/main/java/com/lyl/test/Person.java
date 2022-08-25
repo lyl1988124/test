@@ -1,6 +1,7 @@
 package com.lyl.test;
 
 import com.alibaba.fastjson.JSON;
+import org.apache.commons.lang3.builder.ToStringBuilder;
 
 /**
 
@@ -27,6 +28,14 @@ public class Person {
 
     public void setAge(int age) {
         this.age = age;
+    }
+
+    @Override
+    public String toString() {
+        return new ToStringBuilder(this)
+            .append("name", name)
+            .append("age", age)
+            .toString();
     }
 
     public static void main(String[] args) {

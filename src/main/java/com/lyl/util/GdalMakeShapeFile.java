@@ -1,5 +1,6 @@
 package com.lyl.util;
 
+import org.gdal.gdal.Dataset;
 import org.gdal.gdal.gdal;
 import org.gdal.ogr.*;
 import org.gdal.osr.SpatialReference;
@@ -9,17 +10,17 @@ import org.gdal.osr.SpatialReference;
  * 依赖 gdal dll文件！！！
  * gdal 环境下载地址： https://www.gisinternals.com/release.php
  */
-public class GdalMakeShapeFile
-{
-//    static {
+public class GdalMakeShapeFile {
+    static {
 //        System.load(System.getProperty("user.dir")+"/gdalalljni.dll");
 //        System.load(System.getProperty("user.dir")+"/gdal204.dll");
 //        System.load(System.getProperty("user.dir")+"/javamapscript.dll");
-//    }
-    public static void main( String[] args )
-    {
+//        System.load("D:\\tools\\release-1930-x64-gdal-3-5-0-mapserver-7-6-4\\bin\\gdal\\java\\gdalalljni.dll");
+//        System.load("D:\\tools\\release-1930-x64-gdal-3-5-0-mapserver-7-6-4\\bin");
+    }
 
-        WriteVectorFile();
+    public static void main(String[] args) {
+
     }
 
     static void WriteVectorFile() {
@@ -91,7 +92,16 @@ public class GdalMakeShapeFile
         System.out.println("\n数据集创建完成！\n");
     }
 
-    static void translate(){
-       // gdal.
+    static void makeOverviews() {
+        gdal.AllRegister();
+        int count = ogr.GetDriverCount();
+        System.out.println(count);
+        for (int i = 0; i < count; i++) {
+            System.out.println(ogr.GetDriver(i).GetName());
+        }
+
+        Dataset dataset = gdal.Open("C:\\Users\\rs13\\Desktop\\test\\image.img");
+        int[] m = new int[]{2, 4};
+        dataset.BuildOverviews(m);
     }
 }
