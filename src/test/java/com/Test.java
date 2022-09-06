@@ -16,7 +16,6 @@ public class Test {
         Integer a = new Integer(1000);
         test.triple(a);
         System.out.println("x=" + a);
-        HashMap
     }
 
     private void triple(Integer a) {
