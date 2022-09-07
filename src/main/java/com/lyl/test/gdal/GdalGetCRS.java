@@ -1,9 +1,16 @@
 package com.lyl.test.gdal;
 
 import org.gdal.gdal.Dataset;
+import org.gdal.gdal.Driver;
 import org.gdal.gdal.gdal;
+import org.gdal.ogr.DataSource;
+import org.gdal.ogr.Layer;
 import org.gdal.ogr.ogr;
 import org.gdal.osr.SpatialReference;
+
+import static org.gdal.gdalconst.gdalconstConstants.DCAP_RASTER;
+import static org.gdal.gdalconst.gdalconstConstants.GA_ReadOnly;
+import static org.gdal.ogr.ogrConstants.OGRERR_UNSUPPORTED_SRS;
 
 /**
  * <p> Licence     : (C) Copyright 2019-2022, RSSZ Xi'an
@@ -16,47 +23,39 @@ public class GdalGetCRS {
 
     public static void main(String[] args) {
 
-        //   String filePath = "C:\\Users\\rs13\\Desktop\\test\\idps-test.img";
-        String filePath = "C:\\Users\\rs13\\Desktop\\test\\image.img";
+        String filePath = "C:\\Users\\rs13\\Desktop\\test\\image_dev.tif";
+        //String filePath = "C:\\Users\\rs13\\Desktop\\test\\labels";
         // todo 为什么设置这么大？
         gdal.SetCacheMax(500 * 1024 * 1024);
         gdal.AllRegister();
-        Dataset dataset = gdal.Open(filePath);
-//        Driver driver = gdal.IdentifyDriver(filePath);
-//        System.out.println(driver.getShortName());
 
-//        String raster = driver.GetMetadataItem(DCAP_RASTER);
-//        System.out.println("raster=" + raster);
+        Driver driver = gdal.IdentifyDriver(filePath);
+        System.out.println(driver.getShortName());
 
-        String projection = dataset.GetProjection();
-        SpatialReference spatialReference = new SpatialReference(projection);
+        String isRaster = driver.GetMetadataItem(DCAP_RASTER);
+        SpatialReference spatialReference = null;
+        if (null == isRaster && !"HFA".equals(driver.getShortName())) {
+            org.gdal.ogr.Driver ogrDriver = ogr.GetDriverByName(driver.getShortName());
+            DataSource dataSource = ogrDriver.Open(filePath, GA_ReadOnly);
+            System.out.println("dataSource layer count=" + dataSource.GetLayerCount());
+
+            Layer layer = dataSource.GetLayer(0);
+            spatialReference = layer.GetSpatialRef();
+        } else {
+            Dataset dataset = gdal.Open(filePath);
+            String projection = dataset.GetProjection();
+            spatialReference = new SpatialReference(projection);
+        }
+
+        System.out.println(spatialReference.ExportToWkt());
+        // todo 问题 无spatialReference.FindMatches()方法
+        // 且 AutoIdentifyEPSG 抛出异常，而不是返回0;
+        // https://www.osgeo.cn/gdal/doxygen/classOGRSpatialReference.html#acb0373c83927bfd694048da6f79e33ea
+        //spatialReference.ImportFromEPSG(4396);
+
+      //spatialReference.AutoIdentifyEPSG();
+        System.out.println(spatialReference.ExportToWkt());
         System.out.println(spatialReference.GetAttrValue("Authority", 1));
         System.out.println(spatialReference.ExportToWkt());
-        //String p = spatialReference.GetAttrValue("GEOGCS",0);
-
-//        int count = ogr.GetDriverCount();
-//        for (int i = 0; i < count; i++) {
-//            System.out.println(ogr.GetDriver(i).GetName());
-//            System.out.println(ogr.GetDriver(i).GetDescription());
-//        }
-
-        // org.gdal.ogr.Driver driver2 = ogr.GetDriverByName("EIR");
-        //driver1.
-        // DataSource dataSource = gdal.GetDriverByName("HFA");
-
-        // todo python没有index参数
-//        Layer layer = dataSource.GetLayer(0);
-//        SpatialReference spatialReference1 = layer.GetSpatialRef();
-//
-//        if (ogr.OGRERR_UNSUPPORTED_SRS == spatialReference.AutoIdentifyEPSG()) {
-//
-//            //   spatialReference1.
-//            // spatialReference.
-//            // spatialReference.AutoIdentifyEPSG();
-//        } else {
-//            spatialReference.GetAttrValue("Authority", 1);
-//            spatialReference.ExportToWkt();
-//            spatialReference.ExportToProj4();
-//        }
     }
 }
